@@ -7,15 +7,13 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-  visible!: boolean;
+  
 
-  constructor(private modalService: ModalService) { }
+  constructor(public modalService: ModalService) { }
 
   ngOnInit(): void {
-    this.visible = this.modalService.visible;
+    
   }
 
-  toggleModal(){
-    this.visible = !this.visible;
-  }
+  
 }
