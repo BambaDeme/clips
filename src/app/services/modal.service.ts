@@ -12,15 +12,23 @@ export class ModalService {
 
   constructor() { }
 
-  isModalOpen(){
-    return this.visible;
+  isModalOpen(id: string) : boolean{
+     // this are 2 ways for converting a non boolean value to boolean
+    // Boolean(this.modals.find(element => element.id === id)?.visible)
+    return !!this.modals.find(element => element.id === id)?.visible
   }
 
-  toggleModal(){
-    this.visible = !this.visible;
+  toggleModal(id: string) {
+    const modal = this.modals.find(element => element.id === id)
+    if(modal){
+      modal.visible = !modal.visible
+    }
   }
 
   register(id: string) {
-    throw new Error('Method not implemented.');
+    this.modals.push({
+      id,
+      visible: false
+    })
   }
 }
